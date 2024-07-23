@@ -1,10 +1,14 @@
 --[[
 made by sammyc and loadlua
-gale fighter by makhail07
+
+how to use this script?
+step 1. get your client-sided script.
+step 2. edit the parts "plr.Character" or "Player.Character" with "FakeCharacter" in your client-sided script.
+step 3. go to line 1146 to paste your script
+step 4. congratulation you did it
 
 i didnt really do much besides fix the player not moving with the clientsided rig
 and replacing the other script with gale fighter
-with that being said i did not make this - MelonScripter
 this script is not owned by me so it is open source
 ]]
 
