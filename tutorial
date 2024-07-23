@@ -1,17 +1,11 @@
-
 --[[
 made by sammyc and loadlua
+gale fighter by makhail07
 
 i didnt really do much besides fix the player not moving with the clientsided rig
 and replacing the other script with gale fighter
+with that being said i did not make this - MelonScripter
 this script is not owned by me so it is open source
-
-
---TUTORIAL ON HOW TO USE THIS--
-step 1. get your script from somewhere idk.
-step 2. replace "local Character = plr.Character" with "local Character = FakeCharacter" in your clientsided script so the animations work.
-step 3. go to line "1146" and replace the text with your client sided script
-step 4. congratulation!!! your epic tutorial thing is done
 ]]
 
 local Motors = {
@@ -1142,10 +1136,10 @@ got: "..tostring(v), 2)
 
 		return t
 	end
-
-	--your script here!
 	
-	end)()
+
+
+end)()
 
 local Connection
 Connection = game.Workspace.DescendantAdded:Connect(function(c)
@@ -1159,43 +1153,6 @@ task.wait(0.1)
 local RealChar = Player.Character
 RealChar.Archivable = true
 FakeCharacter.Name = Player.Name .. "_Fake"
-FakeCharacter.Parent = workspace
-task.spawn(function()
-	for i, LS in ipairs(FakeCharacter:GetChildren()) do
-		if LS:IsA("LocalScript") then
-			LS.Enabled = false
-			task.wait(0.1)
-			LS.Enabled = false
-		end
-	end
-end)
-
-for i, Part in ipairs(FakeCharacter:GetDescendants()) do
-	if Part:IsA("BasePart")then
-		Part.Transparency = 0.75
-	end
-end
-
-for i, Decal in ipairs(FakeCharacter:GetDescendants()) do
-	if Decal:IsA("Decal")then
-		Decal.Transparency = 0.75
-	end
-end
-
-Player.Character = FakeCharacter
-
-local Connection
-Connection = game.Workspace.DescendantAdded:Connect(function(c)
-	if c.Name == "Animate" and c.Parent == Player.Character then
-		c.Enabled = false   
-		Connection:Disconnect()
-	end
-end)
-repeat task.wait() until game.Players.LocalPlayer.Character
-task.wait(0.1)
-local RealChar = Player.Character
-RealChar.Archivable = true
-FakeCharacter.Name = "non"
 FakeCharacter.Parent = workspace
 task.spawn(function()
 	for i, LS in ipairs(FakeCharacter:GetChildren()) do
@@ -1259,6 +1216,9 @@ local function SetAngles()
 	end
 end
 
+local KFFolder = Instance.new("Folder")
+KFFolder.Parent = game.ReplicatedStorage
+
 local function BaseCol()
 	for i, Part in ipairs(RealChar:GetChildren()) do
 		if Part:IsA("BasePart")then
@@ -1276,6 +1236,7 @@ RunService.Heartbeat:Connect(function()
 	SetAngles()
 	MotorAngle()
 	RealChar.HumanoidRootPart.CFrame = FakeCharacter.Torso.CFrame
+
 end)
 
 RunService.PreSimulation:Connect(function()
